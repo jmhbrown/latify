@@ -1,0 +1,16 @@
+<h2>This is where the lat and long will be displayed!</h2>
+
+<p>
+<em>Street Address:</em><br>
+	<%= @address.street_address %><br>
+	<%= @address.city %>,
+	<%= @address.state %>
+	<%= @address.zip %>
+</p>
+
+<p>
+	<%= link_to 'show all', addresses_path %>
+	<%= link_to 'edit', edit_address_path(@address) %>
+	<%= link_to 'delete', address_path(@address), method: :delete, data: {confirm: "Are you sure? This can't be undone."} %>
+</p>
+

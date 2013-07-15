@@ -1,0 +1,30 @@
+<%= form_for :coordinate, url: coordinates_path do |f| %>
+	<!-- Checks for a displays errors. -->
+	<% if @coordinate.errors.any? %>
+		<div id="errorExplanation">
+			<!--  @coordinate.errors.count -->
+		<p>Houston, we have <%= pluralize(@coordinate.errors.count, "problem")%>. </p>
+			<ul>
+				<% @coordinate.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<!-- The form fields -->
+	<p>
+		<%= f.label :address %><br>
+		<%= f.text_field :address %>
+	</p>
+	<p>
+		<%= f.label :lat %><br>
+		<%= f.text_field :lat %>
+	</p>
+	<p>
+		<%= f.label :lng %><br>
+		<%= f.text_field :lng %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

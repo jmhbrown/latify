@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  	<title>Latly</title>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNatB9GdXRyQsvyWox3vaqn1UIg_Hg4yg&sensor=false">
+		</script>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag :defaults, 'jquery', 'jquery_ujs', 'map'%>
+		<%= csrf_meta_tags %>
+		<link type='text/css' rel='stylesheet' href='/assets/stylesheets/address.css' />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	</head>
+
+	<body>
+		<div id='header'>
+			<h1> A super simple mapping utility! </h1>
+		</div>
+		
+		<div id="wrapper">
+			<div class='main'>
+				<%= yield %>
+			</div>
+
+			<div class='menu'>	
+				<p>	
+					<%= link_to "List all addresses", controller: :coordinates %><br/>
+					<%= link_to "Home", root_path %><br/>
+				</p>
+				<div id='sidebar-map'>
+					<div id='map-canvas'></div>
+				</div>
+				<input onclick="clearOverlays();" class="map_button" id="sidebar_button" value="Hide">
+				<input onclick="showOverlays();" class="map_button" id="sidebar_button"  value="Show">
+				<input onclick="deleteOverlays();" class="map_button" id="sidebar_button" value="Delete">
+			</div>
+		</div>
+
+
+		<div id='footer'>
+			<em> by Jennifer Brown </em>
+		</div>
+
+	</body>
+</html>

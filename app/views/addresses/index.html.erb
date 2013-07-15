@@ -1,0 +1,25 @@
+<h1> Submitted Addresses</h1>
+
+<table>
+	<tr>
+		<th>Street Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Zip Code</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+
+	<% @addresses.each do |address| %>
+		<tr>
+			<td><%= address.street_address %></td>
+			<td><%= address.city %></td>
+			<td><%= address.state %></td>
+			<td><%= address.zip %></td>
+			<td><%= link_to 'Show', address_path(address) %> </td>
+			<td><%= link_to 'Edit', edit_address_path(address) %> </td>
+			<td><%= link_to 'Delete', address_path(address), method: :delete, data: { confirm: "Are you sure? This can't be undone" } %> </td>
+		</tr>
+	<% end %>
+</table>

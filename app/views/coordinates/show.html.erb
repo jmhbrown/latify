@@ -1,0 +1,12 @@
+<p>
+<em>Address: </em><br>
+	<%= @coordinate.address %> <br>
+<em>Coordinates: </em><br>
+	<%= @coordinate.lat %>, 
+	<%= @coordinate.lng %>
+</p>
+
+<p>
+	<%= link_to 'show all', coordinates_path %>
+	<%= link_to 'delete', coordinate_path(@coordinate), method: :delete, data: {confrim: "Are you sure? This can't be undone."} %>
+</p>
