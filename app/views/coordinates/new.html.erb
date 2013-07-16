@@ -1,0 +1,12 @@
+<h2> Submit an Address </h2>
+
+<input id="address" type="textbox" value="Arlington, VA"><br>
+<input type="button" value="Show" onclick="codeAddress();" class="map_button">
+
+<!-- Submits markers to rails database -->
+<%= form_for Coordinate.new, :remote => true, :html => {:multipart => true, :autosave => true} do |f| %>
+	<%= f.hidden_field :lat, :id => "lat"%>
+	<%= f.hidden_field :lng, :id => "lng"%>
+	<%= f.hidden_field :address, :id => "geocode_address"%>
+	<%= f.submit "Save", :class => "map_button" %>
+<% end %>

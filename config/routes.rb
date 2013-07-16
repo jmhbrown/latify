@@ -1,6 +1,6 @@
 Geoapp::Application.routes.draw do
-	root 'welcome#index'
-	resources :addresses
+	root 'coordinates#new'
+#	resources :addresses
 	resources :coordinates
 
   # Example resource route with options:
