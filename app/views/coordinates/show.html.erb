@@ -1,11 +1,27 @@
 <p>
 <em>Address: </em><br>
-	<%= @coordinate.address %> <br>
+<%= @coordinate.address %> <br>
 <em>Coordinates: </em><br>
-	<%= @coordinate.lat %>, 
-	<%= @coordinate.lng %>
+<%= @coordinate.lat %>, 
+<%= @coordinate.lng %>
+	<%= hidden_field :lat, :id => "lat"%>
+	<%= hidden_field :lng, :id => "lng"%>
+	<%= hidden_field :address, :id => "geocode_address"%>
 </p>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		var lat = <%= @coordinate.lat %>;
+		var lng = <%= @coordinate.lng %>;
+		var addr = "<%= @coordinate.address %>";
+		var marker = new google.maps.Marker({
+			position: google.maps.LatLng(lat, lng),
+			title: addr,
+			map: map
+			});
+		alert(marker);
+		addMarker(marker);
+	});
+</script>
 <p>
 	<%= link_to 'show all', coordinates_path %>
 	<%= link_to 'delete', coordinate_path(@coordinate), method: :delete, data: {confrim: "Are you sure? This can't be undone."} %>
